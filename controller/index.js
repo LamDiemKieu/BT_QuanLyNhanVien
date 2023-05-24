@@ -95,7 +95,7 @@ function capNhat() {
 }
 
 function dong() {
-  document.getElementById("tknv").readOnly = true;
+  // document.getElementById("tknv").readOnly = true;
   document.querySelector(".fade").classList.remove("show");
   document.getElementById("myModal").style.display = "none";
   // document.querySelector(".fade").classList.toggle("modal-open");
