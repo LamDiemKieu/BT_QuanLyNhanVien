@@ -13,21 +13,41 @@ function layGiaTriInput() {
   var valid = true;
 
   // Hàm kiểm tra trường nhập rỗng
-  valid =
-    checkRong(_taiKhoan, "tbTK") &
-    checkRong(_hoTen, "tbTen") &
-    checkRong(_email, "tbEmail") &
-    checkRong(_matKhau, "tbMK") &
-    checkRong(_ngayLam, "tbNgay") &
-    checkRong(_luongCB, "tbLuongCB") &
-    checkRong(_chucVu, "tbChucVu") &
-    checkRong(_gioLam, "tbGioLam") &
-    kiemTraEmail(_email, "tbEmail") &
-    kiemTraTaiKhoan(_taiKhoan, "tbTK") &
-    kiemTraTen(_hoTen, "tbTen") &
-    kiemTraMK(_matKhau, "tbMK") &
-    kiemTraLuong(_luongCB, "tbLuongCB") &
-    kiemTraGioLam(_gioLam, "tbGioLam");
+  // valid =
+  //   checkRong(_taiKhoan, "tbTK") &
+  //   checkRong(_hoTen, "tbTen") &
+  //   checkRong(_email, "tbEmail") &
+  //   checkRong(_matKhau, "tbMK") &
+  //   checkRong(_ngayLam, "tbNgay") &
+  //   checkRong(_luongCB, "tbLuongCB") &
+  //   checkRong(_chucVu, "tbChucVu") &
+  //   checkRong(_gioLam, "tbGioLam") &
+  //   kiemTraEmail(_email, "tbEmail") &
+  //   kiemTraTaiKhoan(_taiKhoan, "tbTK") &
+  //   kiemTraTen(_hoTen, "tbTen") &
+  //   kiemTraMK(_matKhau, "tbMK") &
+  //   kiemTraLuong(_luongCB, "tbLuongCB") &
+  //   kiemTraGioLam(_gioLam, "tbGioLam");
+  valid = checkRong(_ngayLam, "tbNgay");
+  valid = checkRong(_chucVu, "tbChucVu");
+
+  valid = checkRong(_taiKhoan, "tbTK");
+  valid &&= kiemTraTaiKhoan(_taiKhoan, "tbTK");
+
+  valid = checkRong(_hoTen, "tbTen");
+  valid &&= kiemTraTen(_hoTen, "tbTen");
+
+  valid = checkRong(_email, "tbEmail");
+  valid &&= kiemTraEmail(_email, "tbEmail");
+
+  valid = checkRong(_matKhau, "tbMK");
+  valid &&= kiemTraMK(_matKhau, "tbMK");
+
+  valid = checkRong(_luongCB, "tbLuongCB");
+  valid &&= kiemTraLuong(_luongCB, "tbLuongCB");
+
+  valid = checkRong(_gioLam, "tbGioLam");
+  valid &&= kiemTraGioLam(_gioLam, "tbGioLam");
 
   if (!valid) {
     return;
@@ -97,3 +117,21 @@ function getStorage() {
     arrNhanVien = arrNhanVienLocal;
   }
 }
+
+// Hàm định dạng số phân cách đơn vị
+// function dinhDangSo() {
+//   var n = document.getElementById("luongCB").value;
+//   var chiLaySo = /[0-9]/g;
+//   var number = "";
+//   var check = n.match(chiLaySo);
+//   if (check) {
+//     check.forEach(function (item) {
+//       number += item;
+//       check = number;
+//     });
+
+//     check = check.toString();
+//   }
+
+//   document.getElementById("luongCB").value = Number(check).toLocaleString();
+// }

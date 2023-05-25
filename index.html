@@ -225,7 +225,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fa fa-key"></i></span>
 								</div>
-								<input type="password" name="password" id="password" class="form-control input-sm"
+								<input type="text" name="password" id="password" class="form-control input-sm"
 									placeholder="Mật khẩu">
 							</div>
 							<span id="tbMK" class="text-danger mb-1"></span>
@@ -248,8 +248,8 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fa fa-money" aria-hidden="true"></i></span>
 								</div>
-								<input type="number" name="luongCB" id="luongCB" class="form-control input-sm"
-									placeholder="Lương cơ bản">
+								<input onkeyup="dinhDangSo()" type="text" name="luongCB" id="luongCB"
+									class="form-control input-sm" placeholder="Lương cơ bản">
 							</div>
 							<span id="tbLuongCB" class="text-danger mb-1 "></span>
 						</div>
