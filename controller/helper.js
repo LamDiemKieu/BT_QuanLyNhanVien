@@ -6,49 +6,66 @@ function layGiaTriInput() {
   var _email = document.getElementById("email").value;
   var _matKhau = document.getElementById("password").value;
   var _ngayLam = document.getElementById("datepicker").value;
-  var _luongCB = document.getElementById("luongCB").value * 1;
+  var _luongCB = Number(
+    document.getElementById("luongCB").value.replaceAll(",", "")
+  );
+  console.log(_luongCB);
   var _chucVu = document.getElementById("chucvu").value;
   var _gioLam = document.getElementById("gioLam").value * 1;
 
   var valid = true;
+  // // Check tài khoản
+  if (checkRong(_taiKhoan, "tbTK") == false) {
+    valid = false;
+  } else if (kiemTraTaiKhoan(_taiKhoan, "tbTK") == false) {
+    valid = false;
+  }
 
-  // Hàm kiểm tra trường nhập rỗng
-  // valid =
-  //   checkRong(_taiKhoan, "tbTK") &
-  //   checkRong(_hoTen, "tbTen") &
-  //   checkRong(_email, "tbEmail") &
-  //   checkRong(_matKhau, "tbMK") &
-  //   checkRong(_ngayLam, "tbNgay") &
-  //   checkRong(_luongCB, "tbLuongCB") &
-  //   checkRong(_chucVu, "tbChucVu") &
-  //   checkRong(_gioLam, "tbGioLam") &
-  //   kiemTraEmail(_email, "tbEmail") &
-  //   kiemTraTaiKhoan(_taiKhoan, "tbTK") &
-  //   kiemTraTen(_hoTen, "tbTen") &
-  //   kiemTraMK(_matKhau, "tbMK") &
-  //   kiemTraLuong(_luongCB, "tbLuongCB") &
-  //   kiemTraGioLam(_gioLam, "tbGioLam");
-  valid = checkRong(_ngayLam, "tbNgay");
-  valid = checkRong(_chucVu, "tbChucVu");
+  // // Check họ tên
+  if (checkRong(_hoTen, "tbTen") == false) {
+    valid = false;
+  } else if (kiemTraTen(_hoTen, "tbTen") == false) {
+    valid = false;
+  }
 
-  valid = checkRong(_taiKhoan, "tbTK");
-  valid &&= kiemTraTaiKhoan(_taiKhoan, "tbTK");
+  // // Check email
+  if (checkRong(_email, "tbEmail") == false) {
+    valid = false;
+  } else if (kiemTraEmail(_email, "tbEmail") == false) {
+    valid = false;
+  }
 
-  valid = checkRong(_hoTen, "tbTen");
-  valid &&= kiemTraTen(_hoTen, "tbTen");
+  // // Check mật khẩu
+  if (checkRong(_matKhau, "tbMK") == false) {
+    valid = false;
+  } else if (kiemTraMK(_matKhau, "tbMK") == false) {
+    valid = false;
+  }
 
-  valid = checkRong(_email, "tbEmail");
-  valid &&= kiemTraEmail(_email, "tbEmail");
+  // // Check ngày làm
+  if (checkRong(_ngayLam, "tbNgay") == false) {
+    valid = false;
+  }
 
-  valid = checkRong(_matKhau, "tbMK");
-  valid &&= kiemTraMK(_matKhau, "tbMK");
+  // // Check lương CB
+  if (checkRong(_luongCB, "tbLuongCB") == false) {
+    valid = false;
+  } else if (kiemTraLuong(_luongCB, "tbLuongCB") == false) {
+    valid = false;
+  }
 
-  valid = checkRong(_luongCB, "tbLuongCB");
-  valid &&= kiemTraLuong(_luongCB, "tbLuongCB");
+  // // Check chức vụ
+  if (checkRong(_chucVu, "tbChucVu") == false) {
+    valid = false;
+  }
 
-  valid = checkRong(_gioLam, "tbGioLam");
-  valid &&= kiemTraGioLam(_gioLam, "tbGioLam");
-
+  // // Check giờ làm
+  if (checkRong(_gioLam, "tbGioLam") == false) {
+    valid = false;
+  } else if (kiemTraGioLam(_gioLam, "tbGioLam") == false) {
+    valid = false;
+  }
+  console.log(valid);
   if (!valid) {
     return;
   }
@@ -100,7 +117,7 @@ function ganGiaTriChoInput(
   document.getElementById("email").value = email;
   document.getElementById("password").value = matKhau;
   document.getElementById("datepicker").value = ngayLam;
-  document.getElementById("luongCB").value = luongCB;
+  document.getElementById("luongCB").value = luongCB.toLocaleString();
   document.getElementById("chucvu").value = chucVu;
   document.getElementById("gioLam").value = gioLam;
 }
@@ -117,21 +134,3 @@ function getStorage() {
     arrNhanVien = arrNhanVienLocal;
   }
 }
-
-// Hàm định dạng số phân cách đơn vị
-// function dinhDangSo() {
-//   var n = document.getElementById("luongCB").value;
-//   var chiLaySo = /[0-9]/g;
-//   var number = "";
-//   var check = n.match(chiLaySo);
-//   if (check) {
-//     check.forEach(function (item) {
-//       number += item;
-//       check = number;
-//     });
-
-//     check = check.toString();
-//   }
-
-//   document.getElementById("luongCB").value = Number(check).toLocaleString();
-// }

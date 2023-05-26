@@ -63,7 +63,6 @@ function xoaNhanVien(taiKhoan) {
 function editNhanVien(taiKhoan) {
   document.getElementById("myModal").style.display = "block";
   document.querySelector(".fade").classList.add("show");
-  // document.querySelector(".fade").classList.toggle("modal-open");
 
   var index = timViTriNhanVien(taiKhoan);
   var nhanVien = arrNhanVien[index];
@@ -87,7 +86,6 @@ function capNhat() {
   document.getElementById("tknv").readOnly = false;
   // document.querySelector(".fade").classList.toggle("show");
   // document.getElementById("myModal").style.display = "none";
-  // document.querySelector(".fade").classList.toggle("modal-open");
 
   ganGiaTriChoInput("", "", "", "", "", "", "", "", "");
   saveStorage(arrNhanVien);
@@ -98,7 +96,6 @@ function dong() {
   // document.getElementById("tknv").readOnly = true;
   document.querySelector(".fade").classList.remove("show");
   document.getElementById("myModal").style.display = "none";
-  // document.querySelector(".fade").classList.toggle("modal-open");
 
   ganGiaTriChoInput("", "", "", "", "", "", "", "", "");
   saveStorage(arrNhanVien);

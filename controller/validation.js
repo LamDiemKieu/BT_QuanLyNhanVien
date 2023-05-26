@@ -75,7 +75,9 @@ function kiemTraMK(checkMK, idCheckMK) {
 }
 
 // Hàm check ô nhập số lương căn bản
+
 function kiemTraLuong(checkLuong, idCheckLuong) {
+  console.log(checkLuong);
   if (checkLuong >= 1000000 && checkLuong <= 20000000) {
     document.getElementById(idCheckLuong).innerHTML = "";
     return true;
@@ -96,4 +98,22 @@ function kiemTraGioLam(checkGioLam, idCheckGioLam) {
       "Vui lòng nhập số giờ làm hợp lệ";
     return false;
   }
+}
+
+// Hàm định dạng số phân cách đơn vị
+function dinhDangSo() {
+  var n = document.getElementById("luongCB").value;
+  var chiLaySo = /[0-9]/g;
+  var number = "";
+  var check = n.match(chiLaySo);
+  if (check) {
+    check.forEach(function (item) {
+      number += item;
+      check = number;
+    });
+
+    check = check.toString();
+  }
+
+  document.getElementById("luongCB").value = Number(check).toLocaleString();
 }
