@@ -9,63 +9,62 @@ function layGiaTriInput() {
   var _luongCB = Number(
     document.getElementById("luongCB").value.replaceAll(",", "")
   );
-  console.log(_luongCB);
   var _chucVu = document.getElementById("chucvu").value;
   var _gioLam = document.getElementById("gioLam").value * 1;
 
   var valid = true;
-  // // Check tài khoản
+  // Check tài khoản
   if (checkRong(_taiKhoan, "tbTK") == false) {
     valid = false;
   } else if (kiemTraTaiKhoan(_taiKhoan, "tbTK") == false) {
     valid = false;
   }
 
-  // // Check họ tên
+  // Check họ tên
   if (checkRong(_hoTen, "tbTen") == false) {
     valid = false;
   } else if (kiemTraTen(_hoTen, "tbTen") == false) {
     valid = false;
   }
 
-  // // Check email
+  // Check email
   if (checkRong(_email, "tbEmail") == false) {
     valid = false;
   } else if (kiemTraEmail(_email, "tbEmail") == false) {
     valid = false;
   }
 
-  // // Check mật khẩu
+  // Check mật khẩu
   if (checkRong(_matKhau, "tbMK") == false) {
     valid = false;
   } else if (kiemTraMK(_matKhau, "tbMK") == false) {
     valid = false;
   }
 
-  // // Check ngày làm
+  // Check ngày làm
   if (checkRong(_ngayLam, "tbNgay") == false) {
     valid = false;
   }
 
-  // // Check lương CB
+  // Check lương CB
   if (checkRong(_luongCB, "tbLuongCB") == false) {
     valid = false;
   } else if (kiemTraLuong(_luongCB, "tbLuongCB") == false) {
     valid = false;
   }
 
-  // // Check chức vụ
+  // Check chức vụ
   if (checkRong(_chucVu, "tbChucVu") == false) {
     valid = false;
   }
 
-  // // Check giờ làm
+  // Check giờ làm
   if (checkRong(_gioLam, "tbGioLam") == false) {
     valid = false;
   } else if (kiemTraGioLam(_gioLam, "tbGioLam") == false) {
     valid = false;
   }
-  console.log(valid);
+
   if (!valid) {
     return;
   }

@@ -117,3 +117,6 @@ function dinhDangSo() {
 
   document.getElementById("luongCB").value = Number(check).toLocaleString();
 }
+
+// Bắt onchange
+function onchange() {}

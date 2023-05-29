@@ -40,6 +40,7 @@ function themNhanVien() {
     saveStorage(arrNhanVien);
     renderGiaoDien();
     ganGiaTriChoInput("", "", "", "", "", "", "", "", "");
+    document.getElementById("tknv").readOnly = false;
   }
 }
 
@@ -96,6 +97,7 @@ function dong() {
   // document.getElementById("tknv").readOnly = true;
   document.querySelector(".fade").classList.remove("show");
   document.getElementById("myModal").style.display = "none";
+  document.getElementById("tknv").readOnly = false;
 
   ganGiaTriChoInput("", "", "", "", "", "", "", "", "");
   saveStorage(arrNhanVien);

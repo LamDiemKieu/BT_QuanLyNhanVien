@@ -263,3 +263,7 @@ a.article:hover {
 .modal-body form span {
   font-size: 15px;
 }
+
+#tableDanhSach tr:nth-child(odd) {
+  background-color: rgba(128, 128, 128, 0.192);
+}
